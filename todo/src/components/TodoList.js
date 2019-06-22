@@ -6,7 +6,7 @@ class TodoList extends React.Component {
     render() {
         return (
             this.props.todosOnProps.map((todo, index) => (
-                <Todo todo={todo} index={index} />
+                <Todo todo={todo} key={index} index={index} />
             ))
         )
     }

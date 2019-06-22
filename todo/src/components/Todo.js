@@ -8,31 +8,35 @@ class Todo extends React.Component {
         super(props);
     }
 
-    toggleTodo = (e, index) => {
+    toggleTodo = index => {
         console.log("toggle: ", index);
         this.props.toggleTodo(index)
+    }
+
+    toggleHandler = () => {
+        this.toggleTodo(this.props.index)
     }
 
     render() {
         return (
             <div
-                className={`task${this.props.completed ? " completed" : ""}`}
-                onClick={() => this.toggleTodo(this.props.index)}
-                key={this.props.index}>
+                className={`task${this.props.todo.completed ? " completed" : ""}`}
+                onClick={this.toggleHandler}
+            >
                 <p>{this.props.todo.value}</p>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    console.log("Todo.js: mapStateToProps: state ", state);
-    return {
-        todosOnProps: state.todos
-    }
-}
+// const mapStateToProps = state => {
+//     console.log("Todo.js: mapStateToProps: state ", state);
+//     return {
+//         todosOnProps: state.todos
+//     }
+// }
 
 export default connect(
-    mapStateToProps,
-    {toggleTodo}
+    null,
+    { toggleTodo }
 )(Todo);

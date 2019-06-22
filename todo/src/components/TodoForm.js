@@ -30,14 +30,14 @@ class TodoForm extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log("TodoForm.js: mapStateToProps: state: ", state);
-    return {
-        todosOnProps: state.todos
-    }
-}
+// const mapStateToProps = state => {
+//     console.log("TodoForm.js: mapStateToProps: state: ", state);
+//     return {
+//         todosOnProps: state.todos
+//     }
+// }
 
 export default connect(
-    mapStateToProps,
+    null,
     { submitTodo }
 )(TodoForm);
